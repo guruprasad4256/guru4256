@@ -205,6 +205,63 @@ const RegisterForm = () => {
                                 </span>
                             )}
                         </div>
+                        <div className="mb-6">
+            <label className="block mb-2 text-themeDarker" htmlFor="phone">
+                Phone Number
+            </label>
+            <input
+                className={`appearance-none block w-full !p-3 leading-5 text-coolGray-900 border ${
+                    errors?.phone ? '!border-red-500' : 'border-gray'
+                } rounded-lg placeholder-coolGray-400 focus:outline-none `}
+                type="tel"
+                {...register('phone', { required: true })}
+                placeholder="Enter Your Phone Number"
+            />
+            {errors?.phone && (
+                <span className="text-red-600 text-xss italic">
+                    This field is required
+                </span>
+            )}
+        </div>
+
+        <div className="mb-6">
+            <label className="block mb-2 text-themeDarker">
+                Gender
+            </label>
+            <div className="flex gap-6 pt-2 pb-8 w-full">
+                <div className="w-6/12 checked:bg-themePrimary text-[#fff]">
+                    <input
+                        type="radio"
+                        id="male-radio"
+                        value="male"
+                        className="hidden absolute"
+                        {...register('gender')}
+                        defaultChecked
+                    />
+                    <label
+                        htmlFor="male-radio"
+                        className="bg-themePrimary/20 w-full text-themeDark hover:bg-themePrimary/30 duration-300 ease-in-out hover:text-themePrimary px-3 py-2.5 text-center cursor-pointer rounded"
+                    >
+                        Male
+                    </label>
+                </div>
+                <div className="w-6/12 checked:bg-themePrimary text-[#fff]">
+                    <input
+                        type="radio"
+                        id="female-radio"
+                        value="female"
+                        {...register('gender')}
+                        className="hidden absolute"
+                    />
+                    <label
+                        htmlFor="female-radio"
+                        className="bg-themePrimary/20 text-themeDark hover:bg-themePrimary/30 duration-300 ease-in-out hover:text-themePrimary px-3 py-2.5 w-full text-center cursor-pointer rounded"
+                    >
+                        Female
+                    </label>
+                </div>
+            </div>
+        </div>
                     </>
                 )}
 
